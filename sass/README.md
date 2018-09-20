@@ -15,15 +15,15 @@ This pulls in the necessary dependencies.
 From now on, our commands assume we are in the Sass experiment
 directory. Go there with:
 
-$ cd sass
+$ cd [directory]
 
 Next, to see sass in action,
 
 1. In the terminal, run:
 
-$ ../node_modules/.bin/sass input.scss output.css --watch
+$ ../node_modules/.bin/sass [filename].scss output.css --watch
 
-This watches input.scss for changes, and runs sass when a
+This watches [filename].scss for changes, and runs sass when a
 change is detected.
 
 This terminal tab needs to remain open so that the watch
@@ -32,7 +32,7 @@ continues to run.
 (cmd + t opens a new tab in terminal with
 the same working directory)
 
-2. Next, in your editor, make a change to input.scss.
+2. Next, in your editor, make a change to [filename].scss.
 
 The watch command should run sass to rebuild output.css
 and output.css.map.
@@ -48,5 +48,5 @@ deliver HTML pages. A new tab should open in your browser.
 This tab is connected to browser-sync and should automatically
 refresh when the watched files (output.css) change.
 
-Make another change to input.scss to see first sass, then browser-sync
+Make another change to [filename].scss to see first sass, then browser-sync
 react to the update.
