@@ -1,6 +1,7 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #F68657;
 $heading-color: #754F44;
+$nav-link-color: #56A902;
 
 body {
   font: 100% $font-stack;
@@ -24,5 +25,6 @@ nav {
     display: block;
     padding: 6px 12px;
     text-decoration: none;
+    color: $nav-link-color;
   }
 }
