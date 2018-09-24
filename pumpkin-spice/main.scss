@@ -15,7 +15,7 @@ $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
-$black:    #0000;
+$black:    #000;
 
 $blue:    #007bff;
 $indigo:  #6610f2;
@@ -39,7 +39,3 @@ $dark:          $gray-800;
 
 // Bootstrap and its default variables
 @import "./node_modules/bootstrap/scss/bootstrap";
-
-.bogus {
-    // doesn't do anything
-}
