@@ -46,14 +46,14 @@
 
     <h2 class="mt-5">Nearby Gyms</h2>
 
-    <p class="alert alert-danger mt-3 mb-3" id="gym-count">Do you know any Gyms nearby? If so, please add them to the list!</p>
+    <p class="alert alert-danger mt-3 mb-3" id="gym-message">Do you know any Gyms nearby? If so, please add them to the list!</p>
 
-    <ul>
+    <ul id="gyms">
         <li>
             <form class="form-inline">
                 <input class="form-control form-control-sm mr-2" id="new_gym_name" placeholder="New Gym Name">
                 <input class="form-control form-control-sm mr-2" id="new_gym_url" placeholder="http://maps.google.com...">
-                <button class="btn btn-primary btn-sm" type="button">Add</button>
+                <button class="btn btn-primary btn-sm" type="button" onclick="newGym()">Add</button>
             </form>
         </li>
     </ul>

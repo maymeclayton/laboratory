@@ -69,7 +69,44 @@ function newPokestop() {
 
 function newGym() {
 
+    message = document.getElementById('gym-message');
+    gyms = document.getElementById('gyms');
+    new_name = document.getElementById('new_gym_name');
+    new_url = document.getElementById('new_gym_url');
 
+    valid_match = /^https?:\/\//i;
+
+    if (new_url.value.search(valid_match) === 0) {
+
+        new_item = document.createElement("li");
+        new_a = document.createElement("a");
+        new_text = document.createTextNode(new_name.value);
+        new_a.appendChild(new_text);
+        new_a.target = "_blank";
+        new_a.href = new_url.value;
+        new_item.appendChild(new_a);
+
+        console.log(new_item);
+
+        // *** magic ***
+        first_li = document.querySelector("#gyms li:first-of-type");
+        gyms.insertBefore(new_item, first_li);
+
+        message.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
+        message.classList.add("alert-success");
+        message.classList.remove("alert-danger");
+
+        new_name.value = '';
+        new_url.value = '';
+
+    }
+    else {
+
+        message.innerHTML = "The gym URL needs to begin with <code>http://</code> or <code>https://</code> - please correct it.";
+        message.classList.add("alert-danger");
+        message.classList.remove("alert-success");
+
+    }
 
 
 }
