@@ -10,49 +10,64 @@ function newPokestop() {
     new_url = document.getElementById('new_stop_url');
 
     // 2.a Make sure there is a protocol at the beginning of the url
-    // TODO
+    // That is, either new_url starts with "http://" or new_url starts
+    // with "https://"
+    if (new_url.value.substring(0, 7) == "http://" || new_url.value.substring(0, 8) == "https://") {
 
+        // 3. Grab the UL
+        pokestops = document.getElementById('pokestops');
 
-    // 3. Grab the UL
-    pokestops = document.getElementById('pokestops');
+        // 4. Create a new list item
+        new_li = document.createElement("li");
 
-    // 4. Create a new list item
-    new_li = document.createElement("li");
+        // 5. Create a new anchor tag
+        new_a = document.createElement("a");
 
-    // 5. Create a new anchor tag
-    new_a = document.createElement("a");
+        // 6. Create a new text node (something that would display on the screen)
+        new_text = document.createTextNode(new_name.value);
 
-    // 6. Create a new text node (something that would display on the screen)
-    new_text = document.createTextNode(new_name.value);
+        // 7. Add the text to the anchor (this is the text between <a> and </a>)
+        new_a.appendChild(new_text);
 
-    // 7. Add the text to the anchor (this is the text between <a> and </a>)
-    new_a.appendChild(new_text);
+        // 8. Add the href attribute and a blank target to the anchor
+        new_a.href = new_url.value;
+        new_a.target = "_blank";
 
-    // 8. Add the href attribute to the anchor
-    new_a.href = new_url.value;
+        // 9. Add the anchor to the li
+        new_li.appendChild(new_a);
 
-    // 9. Add the anchor to the li
-    new_li.appendChild(new_a);
+        // 10. Prepend li before first li that's already there
+        first_li = document.querySelector("#pokestops li:first-of-type");
+        pokestops.insertBefore(new_li, first_li);
 
-    // 10. Prepend li before first li that's already there
-    first_li = document.querySelector("#pokestops li:first-of-type");
-    pokestops.insertBefore(new_li, first_li);
+        // This method was suggested here:
+        // https://www.w3schools.com/jsref/met_node_insertbefore.asp
+        // pokestops.insertBefore(new_li, pokestops.childNodes[0]);
 
-    // This method was suggested here:
-    // https://www.w3schools.com/jsref/met_node_insertbefore.asp
-    // pokestops.insertBefore(new_li, pokestops.childNodes[0]);
+        // 11. Update the alert
+        alert = document.getElementById('pokestop-message');
+        alert.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
+        alert.classList.remove('alert-danger');
+        alert.classList.add('alert-success');
 
-    // 11. Update the alert
-    alert = document.getElementById('pokestop-message');
-    alert.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
-    alert.classList.remove('alert-danger');
-    alert.classList.add('alert-success');
+        // 12. Blank out the name and the url
+        new_name.value = '';
+        new_url.value = '';
 
-    // 12. Blank out the name and the url
-    new_name.value = '';
-    new_url.value = '';
+    }
 
+    else {
 
+        alert = document.getElementById('pokestop-message');
+        alert.innerHTML = "The Pokestop URL must begin with <code>http://</code> or <code>https://</code> - please correct it.";
+        alert.classList.remove('alert-success');
+        alert.classList.add('alert-danger');
+
+    }
+
+}
+
+function newGym() {
 
 
 
