@@ -4,10 +4,10 @@ function newPokestop() {
     // to top of the unordered list of Pokestops
 
     // 1. Grab the input name
-    new_name = document.getElementById('new_stop_name');
+    var new_name = document.getElementById('new_stop_name');
 
     // 2. Grab the input url
-    new_url = document.getElementById('new_stop_url');
+    var new_url = document.getElementById('new_stop_url');
 
     // 2.a Make sure there is a protocol at the beginning of the url
     // That is, either new_url starts with "http://" or new_url starts
@@ -15,16 +15,16 @@ function newPokestop() {
     if (new_url.value.substring(0, 7) == "http://" || new_url.value.substring(0, 8) == "https://") {
 
         // 3. Grab the UL
-        pokestops = document.getElementById('pokestops');
+        var pokestops = document.getElementById('pokestops');
 
         // 4. Create a new list item
-        new_li = document.createElement("li");
+        var new_li = document.createElement("li");
 
         // 5. Create a new anchor tag
-        new_a = document.createElement("a");
+        var new_a = document.createElement("a");
 
         // 6. Create a new text node (something that would display on the screen)
-        new_text = document.createTextNode(new_name.value);
+        var new_text = document.createTextNode(new_name.value);
 
         // 7. Add the text to the anchor (this is the text between <a> and </a>)
         new_a.appendChild(new_text);
@@ -37,7 +37,7 @@ function newPokestop() {
         new_li.appendChild(new_a);
 
         // 10. Prepend li before first li that's already there
-        first_li = document.querySelector("#pokestops li:first-of-type");
+        var first_li = document.querySelector("#pokestops li:first-of-type");
         pokestops.insertBefore(new_li, first_li);
 
         // This method was suggested here:
@@ -45,7 +45,7 @@ function newPokestop() {
         // pokestops.insertBefore(new_li, pokestops.childNodes[0]);
 
         // 11. Update the alert
-        alert = document.getElementById('pokestop-message');
+        var alert = document.getElementById('pokestop-message');
         alert.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
         alert.classList.remove('alert-danger');
         alert.classList.add('alert-success');
@@ -58,7 +58,7 @@ function newPokestop() {
 
     else {
 
-        alert = document.getElementById('pokestop-message');
+        var alert = document.getElementById('pokestop-message');
         alert.innerHTML = "The Pokestop URL must begin with <code>http://</code> or <code>https://</code> - please correct it.";
         alert.classList.remove('alert-success');
         alert.classList.add('alert-danger');
@@ -69,18 +69,18 @@ function newPokestop() {
 
 function newGym() {
 
-    message = document.getElementById('gym-message');
-    gyms = document.getElementById('gyms');
-    new_name = document.getElementById('new_gym_name');
-    new_url = document.getElementById('new_gym_url');
+    var message = document.getElementById('gym-message');
+    var gyms = document.getElementById('gyms');
+    var new_name = document.getElementById('new_gym_name');
+    var new_url = document.getElementById('new_gym_url');
 
-    valid_match = /^https?:\/\//i;
+    const valid_match = /^https?:\/\//i;
 
     if (new_url.value.search(valid_match) === 0) {
 
-        new_item = document.createElement("li");
-        new_a = document.createElement("a");
-        new_text = document.createTextNode(new_name.value);
+        var new_item = document.createElement("li");
+        var new_a = document.createElement("a");
+        var new_text = document.createTextNode(new_name.value);
         new_a.appendChild(new_text);
         new_a.target = "_blank";
         new_a.href = new_url.value;
@@ -89,7 +89,7 @@ function newGym() {
         console.log(new_item);
 
         // *** magic ***
-        first_li = document.querySelector("#gyms li:first-of-type");
+        var first_li = document.querySelector("#gyms li:first-of-type");
         gyms.insertBefore(new_item, first_li);
 
         message.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
