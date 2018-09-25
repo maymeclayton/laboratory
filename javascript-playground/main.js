@@ -1,3 +1,5 @@
+// newPokestop() is writting in ES5 syntax
+
 function newPokestop() {
 
     // We want to add the name and url from this form
@@ -67,29 +69,33 @@ function newPokestop() {
 
 }
 
-function newGym() {
+// newGym() is written in ES6 syntax
 
-    var message = document.getElementById('gym-message');
-    var gyms = document.getElementById('gyms');
-    var new_name = document.getElementById('new_gym_name');
-    var new_url = document.getElementById('new_gym_url');
+const newGym = () => {
+
+    let message = document.getElementById('gym-message');
+    let gyms = document.getElementById('gyms');
+    let new_name = document.getElementById('new_gym_name');
+    let new_url = document.getElementById('new_gym_url');
 
     const valid_match = /^https?:\/\//i;
 
+// console.log("1", new_item);
+
     if (new_url.value.search(valid_match) === 0) {
 
-        var new_item = document.createElement("li");
-        var new_a = document.createElement("a");
-        var new_text = document.createTextNode(new_name.value);
+        let new_item = document.createElement("li");
+        let new_a = document.createElement("a");
+        let new_text = document.createTextNode(new_name.value);
         new_a.appendChild(new_text);
         new_a.target = "_blank";
         new_a.href = new_url.value;
         new_item.appendChild(new_a);
 
-        console.log(new_item);
+// console.log("2", new_item);
 
         // *** magic ***
-        var first_li = document.querySelector("#gyms li:first-of-type");
+        let first_li = document.querySelector("#gyms li:first-of-type");
         gyms.insertBefore(new_item, first_li);
 
         message.innerHTML = "Thanks for adding <strong>" + new_name.value + "</strong> to the list!";
@@ -108,5 +114,6 @@ function newGym() {
 
     }
 
+// console.log("3", new_item);
 
 }
