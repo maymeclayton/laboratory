@@ -1,0 +1,44 @@
+/*
+    Dark grey = #7C7877
+    Light grey = #D9D4CF
+    Teal = #ABD0CE
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Boogaloo|Libre+Baskerville');
+
+body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+nav {
+    background: #D9D4CF;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+nav a {
+    padding: 20px;
+    float: left;
+    font-family: 'Boogaloo', cursive;
+    font-size: 24px;
+    text-decoration: none;
+    color: #7C7877;
+}
+
+nav.home .home,
+nav.projects .projects,
+nav.services .services,
+nav.contact .contact {
+    color: #ABD0CE;
+    background-color: #7C7877;
+}
+
+p {
+    padding: 0 10px;
+}
+
+.highlight {
+    background-color: #ABD0CE;
+    padding: 10px;
+    margin: 0 5px;
+}
