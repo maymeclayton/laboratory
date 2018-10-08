@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Navigation Menu</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+
+        <div id="app">
+
+            <nav v-bind:class="active">
+                <a class="home" href="#" v-on:click="makeActive('home');">Home</a>
+                <a class="projects" href="#" v-on:click="makeActive('projects');">Projects</a>
+                <a class="services" href="#" v-on:click="makeActive('services');">Services</a>
+                <a class="contact" href="#" v-on:click="makeActive('contact');">Contact</a>
+            </nav>
+
+            <p v-if="active">You are viewing the <span class="highlight">{{ active }}</span> tab.</p>
+            <p v-else>Click a menu item for more content.</p>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
