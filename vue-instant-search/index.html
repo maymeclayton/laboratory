@@ -8,18 +8,23 @@
     </head>
     <body class="container">
 
-        <h1>Vue Instant Search</h1>
+        <h1 class="mt-5">Vue Instant Search</h1>
 
         <div id="app" v-cloak>
 
-            <div class="form-group">
-                <input class="form-input" type="text" placeholder="Enter search string..." v-model="searchString">
+            <div class="mt-4 mb-5 form-group">
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter search string..."
+                    v-model="searchString"
+                >
             </div>
 
-            <ul>
-                <li v-for="movie in filteredMovies">
-                    <a href="movie.url"><img src="movie.image"></a>
-                    <p>{{ movie.title }}</p>
+            <ul class="list-unstyled">
+                <li class="border-top mb-4 pt-4" v-for="movie in filteredMovies">
+                    <a class="mr-4" v-bind:href="movie.url"><img v-bind:src="movie.image"></a>
+                    {{ movie.title }}
                 </li>
             </ul>
 

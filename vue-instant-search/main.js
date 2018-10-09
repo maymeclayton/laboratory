@@ -4,6 +4,8 @@ var app = new Vue({
 
     data: {
 
+        searchString: '',
+
         // The data model. These items would normally be requested via AJAX,
         // but are hardcoded here for simplicity.
 
@@ -56,12 +58,12 @@ var app = new Vue({
             {
                 "title": "Guardians of the Galaxy",
                 "url": "https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_(film)",
-                "image": "https://upload.wikimedia.org/wikipedia/en/8/8f/GOTG-poster.jpg"
+                "image": "https://upload.wikimedia.org/wikipedia/en/b/b5/Guardians_of_the_Galaxy_poster.jpg"
             },
             {
                 "title": "Avengers: Age of Ultron",
                 "url": "https://en.wikipedia.org/wiki/Avengers:_Age_of_Ultron",
-                "image": "https://upload.wikimedia.org/wikipedia/en/1/1b/Avengers_Age_of_Ultron.jpg"
+                "image": "https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg"
             },
             {
                 "title": "Ant-Man",
@@ -81,7 +83,7 @@ var app = new Vue({
             {
                 "title": "Guardians of the Galaxy Vol. 2",
                 "url": "https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy_Vol._2",
-                "image": "https://upload.wikimedia.org/wikipedia/en/9/95/GotG_Vol2_poster.jpg"
+                "image": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/Guardians_of_the_Galaxy_Vol_2_poster.jpg/220px-Guardians_of_the_Galaxy_Vol_2_poster.jpg"
             },
             {
                 "title": "Spider-Man: Homecoming",
@@ -98,11 +100,36 @@ var app = new Vue({
                 "url": "https://en.wikipedia.org/wiki/Black_Panther_(film)",
                 "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Black_Panther_film_poster.jpg"
             }
-        ],
-
-        filteredMovies: [],
-        searchString: ''
+        ]
     },
+
+    computed: {
+
+        filteredMovies: function () {
+
+            let movies_array = this.movies;
+            let search = this.searchString.trim().toLowerCase();
+
+            if (search) {
+
+                movies_array = movies_array.filter(function(item) {
+
+                    if (item.title.toLowerCase().indexOf(search) !== -1) {
+                        return item;
+                    }
+
+                });
+
+            }
+
+            return movies_array;
+
+        }
+
+
+
+    },
+
 
     methods: {
 
