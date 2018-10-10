@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Local Storage</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body class="container">
+
+        <h1 class="mt-5 mb-5">Favorite Color</h1>
+
+        <form class="form-inline mb-5">
+
+            <div class="form-group">
+                <label for="color">Favorite Color:</label>
+                <input type="text" class="ml-3 form-control" id="color">
+            </div>
+
+            <a href="#" onclick="saveInput()" class="ml-3 btn btn-success">Save</a>
+
+        </form>
+
+        <div id="message" class="border border-warning p-3 bg-warning rounded">
+            You haven't entered a favorite color yet.
+        </div>
+
+    <script src="main.js"></script>
+    </body>
+</html>
