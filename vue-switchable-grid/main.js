@@ -10,18 +10,26 @@ let app = new Vue({
 
     computed: {
 
+        showGrid: function () {
+            return this.show == 'grid';
+        },
+
+        showList: function () {
+            return this.show == 'list';
+        }
+
     },
 
     created: function () {
 
         // Format a url
-        let url = 'https://api.thecatapi.com/v1/images/search?limit=20';
+        let url = 'https://api.thecatapi.com/v1/images/search?limit=24';
 
         // Fetch from the url
         this.apiRequest.onload = this.onSuccess;
         this.apiRequest.onerror = this.onError;
         this.apiRequest.open('get', url, true);
-        // apiRequest.setRequestHeader('x-api-key', 'e505ef31-f61d-4814-b9d9-b636d0b99753');
+        // apiRequest.setRequestHeader('x-api-key', 'your-key-here');
         this.apiRequest.send();
 
     },
