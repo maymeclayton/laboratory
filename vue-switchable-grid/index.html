@@ -26,7 +26,9 @@
         <div class="p-5 bg-light">
 
             <div id="list" class="" v-if="show == 'list'">
-                This is the list view.
+                <ul class="list-unstyled">
+                    <li v-for="cat in cats"><img v-bind:src="cat.url"> {{ cat.url }}</li>
+                </ul>
             </div>
 
             <div id="grid" class="" v-if="show == 'grid'">

@@ -2,6 +2,6 @@
     display: none
 }
 
-.nav-item:focus{
-    background: red !important;
+img {
+    max-width: 120px;
 }
