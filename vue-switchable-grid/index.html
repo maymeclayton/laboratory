@@ -13,25 +13,27 @@
 
     <title>Vue Switchable Grid</title>
   </head>
-  <body class="container">
+  <body class="container bg-secondary">
     <h1 class="mt-5">Vue Switchable Grid</h1>
 
-    <div id="app">
+    <div id="app" v-cloak>
 
-        <nav class="nav nav-bar bg-dark justify-content-end mt-3 mb-5">
-            <a href="#" class="text-warning nav-link" v-on:click="pickGrid"><i class="fas fa-th"></i></a>
-            <a href="#" class="text-warning nav-link" v-on:click="pickList"><i class="fas fa-th-list"></i></a>
+        <nav class="nav bg-secondary justify-content-end mt-3 nav-tabs">
+            <a href="#" v-bind:class="{ 'active bg-light': show == 'grid' }" class="border-0 text-warning nav-link nav-item mr-1" v-on:click="pickGrid"><i class="fas fa-th"></i></a>
+            <a href="#" v-bind:class="{ 'active bg-light': show == 'list' }" class="border-0 text-warning nav-link nav-item" v-on:click="pickList"><i class="fas fa-th-list"></i></a>
         </nav>
 
-        <div id="list" v-if="show == 'list'">
-            This is the list view.
+        <div class="p-5 bg-light">
+
+            <div id="list" class="" v-if="show == 'list'">
+                This is the list view.
+            </div>
+
+            <div id="grid" class="" v-if="show == 'grid'">
+                This is the grid view.
+            </div>
+
         </div>
-
-
-        <div id="grid" v-if="show == 'grid'">
-            This is the grid view.
-        </div>
-
 
     </div>
 
